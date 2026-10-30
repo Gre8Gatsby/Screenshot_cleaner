@@ -1,0 +1,33 @@
+[package]
+name = "rust-core"
+version = "0.1.0"
+edition = "2021"
+authors = ["Screenshot Auto-Expirer Team"]
+description = "High-performance, ultra-small footprint screenshot classification and auto-expiration engine"
+
+[lib]
+name = "expirer"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+jni = { version = "0.21", default-features = false }
+rusqlite = { version = "0.31", features = ["bundled"] }
+regex = "1.10"
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+log = "0.4"
+
+[target.'cfg(target_os = "android")'.dependencies]
+android_logger = "0.14"
+
+[dev-dependencies]
+tempfile = "3.10"
+
+[profile.release]
+opt-level = "z"         # Optimize for size
+lto = true              # Link-Time Optimization
+codegen-units = 1       # Reduce parallelism for better optimization & smaller binary
+panic = "abort"         # Strip stack unwinding code to save ~150-200 KB
+strip = true            # Automatically strip debug symbols and symbols table
+

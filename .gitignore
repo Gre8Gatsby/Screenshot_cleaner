@@ -1,0 +1,18 @@
+# Rust build artifacts
+rust-core/target/
+Cargo.lock
+
+# Gradle & Android build artifacts
+.gradle/
+build/
+app/build/
+*.apk
+*.aab
+local.properties
+.idea/
+*.iml
+.DS_Store
+
+# Native libs generated dynamically
+app/src/main/jniLibs/*/*.so
+

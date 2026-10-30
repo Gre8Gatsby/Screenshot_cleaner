@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Screenshot Auto-Expirer</string>
+    <string name="service_notification_channel">Screenshot Watcher Service</string>
+    <string name="tagged_notification_channel">Temporary Screenshot Alerts</string>
+    <string name="cleanup_notification_channel">Auto-Cleanup Summaries</string>
+</resources>
+
